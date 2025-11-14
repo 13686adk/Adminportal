@@ -1,251 +1,96 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Portal Dashboard</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 
-<body>
-    <!-- Sidebar -->
-    <div id="sidebar-container"></div>
+<body class="bg-light d-flex justify-content-center align-items-center" style="height: 100vh;">
 
-    <!-- Main Content -->
-    <div class="main-content">
-        <!-- Top Header -->
-        <div id="header"></div>
+  <div class="card shadow p-4" style="width: 350px; border-radius: 10px;">
+    <h3 class="text-center mb-4">Admin Login</h3>
 
-        <!-- Dashboard Content -->
-        <div class="dashboard-content">
-            <div class="page-title">
-                <h2>Dashboard Overview</h2>
-            </div>
-            <p class="page-subtitle">Welcome to the Mentorship Platform Admin Portal</p>
-
-            <!-- Stats Grid - First Row -->
-            <div class="stats-grid">
-                <div class="stat-card" style="background-color: #e6f5ff;">
-                    <div class="stat-header">
-                        <span class="stat-title">Total Mentors</span>
-                        <div class="stat-icon blue">
-                            <i class="fas fa-sync"></i>
-                        </div>
-                    </div>
-                    <div class="stat-number">1,234</div>
-                    <div class="stat-description">Active Mentors in platform</div>
-                </div>
-
-                <div class="stat-card" style="background-color: #e6f5ff;">
-                    <div class="stat-header">
-                        <span class="stat-title">Total Mentees</span>
-                        <div class="stat-icon teal">
-                            <i class="fas fa-users"></i>
-                        </div>
-                    </div>
-                    <div class="stat-number">5,678</div>
-                    <div class="stat-description">Registered mentees</div>
-                </div>
-
-                <div class="stat-card" style="background-color: #e6f5ff;">
-                    <div class="stat-header">
-                        <span class="stat-title">Active Sessions</span>
-                        <div class="stat-icon orange">
-                            <i class="fas fa-video"></i>
-                        </div>
-                    </div>
-                    <div class="stat-number">89</div>
-                    <div class="stat-description">Currently ongoing</div>
-                </div>
-            </div>
-
-            <!-- Stats Grid - Second Row -->
-            <div class="stats-grid-secondary">
-                <div class="stat-card" style="background-color: #e6f5ff;">
-                    <div class="stat-header">
-                        <span class="stat-title">Total Courses</span>
-                        <div class="stat-icon blue">
-                            <i class="fas fa-book-open"></i>
-                        </div>
-                    </div>
-                    <div class="stat-number">456</div>
-                    <div class="stat-description">Available courses</div>
-                </div>
-
-                <div class="stat-card" style="background-color: #e6f5ff;">
-                    <div class="stat-header">
-                        <span class="stat-title">Communities</span>
-                        <div class="stat-icon teal">
-                            <i class="fas fa-layer-group"></i>
-                        </div>
-                    </div>
-                    <div class="stat-number">123</div>
-                    <div class="stat-description">Active communities</div>
-                </div>
-
-                <div class="stat-card" style="background-color: #e6f5ff;">
-                    <div class="stat-header">
-                        <span class="stat-title">Pending Reports</span>
-                        <div class="stat-icon orange">
-                            <i class="fas fa-file-alt"></i>
-                        </div>
-                    </div>
-                    <div class="stat-number">12</div>
-                    <div class="stat-description">Requires attention</div>
-                    <div class="avatar-group">
-                    </div>
-                </div>
-            </div>
-
-            <!-- Bottom Section -->
-            <div class="bottom-section">
-                <div class="activity-card" style="background-color: #e6f5ff;">
-                    <h3 class="card-title">Recent Activity</h3>
-                    <ul class="activity-list">
-                        <li class="activity-item">
-                            <span class="activity-name">New mentor requests</span>
-                            <span class="activity-count">24</span>
-                        </li>
-                        <li class="activity-item">
-                            <span class="activity-name">Pending course approvals</span>
-                            <span class="activity-count">8</span>
-                        </li>
-                        <li class="activity-item">
-                            <span class="activity-name">Flagged sessions</span>
-                            <span class="activity-count text-danger">3</span>
-                        </li>
-                    </ul>
-                </div>
-
-                <div class="actions-card" style="background-color: #e6f5ff;">
-                    <h3 class="card-title">Quick Actions</h3>
-                    <button class="action-btn">View Mentor Requests</button>
-                    <button class="action-btn">View Course Requests</button>
-                </div>
-            </div>
-        </div>
-
-        <div class="container mt-4">
-            <div class="card shadow-sm border-0" style="background-color: #e9f4ff;">
-                <div class="card-body">
-                    <h5 class="fw-semibold mb-4">Pending Mentor Recommendations</h5>
-
-                    <!-- Student 1 -->
-                    <div class="card mb-3 border-0 shadow-sm" style="background-color: #f3f9ff;">
-                        <div class="card-body">
-                            <div class="d-flex justify-content-between align-items-start mb-2">
-                                <div>
-                                    <h6 class="fw-semibold mb-0">Alex Thompson</h6>
-                                    <small class="text-muted">alex@example.com</small>
-                                </div>
-                                <button class="btn btn-primary btn-sm">Recommend</button>
-                            </div>
-
-                            <div class="mb-2">
-                                <small class="fw-semibold d-block">Interests</small>
-                                <span class="badge text-bg-light border">Web Development</span>
-                                <span class="badge text-bg-light border">React</span>
-                                <span class="badge text-bg-light border">JavaScript</span>
-                            </div>
-
-                            <hr>
-
-                            <div>
-                                <small class="fw-semibold d-block mb-1">Recommended Mentor:</small>
-                                <div class="ps-2">
-                                    <h6 class="fw-semibold mb-0">Sarah Johnson</h6>
-                                    <small class="text-muted">5 years • 150 students</small>
-                                    <div class="mt-1">
-                                        <span class="badge text-bg-light border">Web Development</span>
-                                        <span class="badge text-bg-light border">React</span>
-                                        <span class="badge text-bg-light border">Node.js</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Student 2 -->
-                    <div class="card mb-3 border-0 shadow-sm" style="background-color: #f3f9ff;">
-                        <div class="card-body">
-                            <div class="d-flex justify-content-between align-items-start mb-2">
-                                <div>
-                                    <h6 class="fw-semibold mb-0">Jordan Lee</h6>
-                                    <small class="text-muted">jordan@example.com</small>
-                                </div>
-                                <button class="btn btn-primary btn-sm">Recommend</button>
-                            </div>
-
-                            <div class="mb-2">
-                                <small class="fw-semibold d-block">Interests</small>
-                                <span class="badge text-bg-light border">Data Science</span>
-                                <span class="badge text-bg-light border">Python</span>
-                                <span class="badge text-bg-light border">ML</span>
-                            </div>
-
-                            <hr>
-
-                            <div>
-                                <small class="fw-semibold d-block mb-1">Recommended Mentor:</small>
-                                <div class="ps-2">
-                                    <h6 class="fw-semibold mb-0">Michael Chan</h6>
-                                    <small class="text-muted">8 years • 420 students</small>
-                                    <div class="mt-1">
-                                        <span class="badge text-bg-light border">Data Science</span>
-                                        <span class="badge text-bg-light border">Python</span>
-                                        <span class="badge text-bg-light border">Machine Learning</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Student 3 -->
-                    <div class="card mb-3 border-0 shadow-sm" style="background-color: #f3f9ff;">
-                        <div class="card-body">
-                            <div class="d-flex justify-content-between align-items-start mb-2">
-                                <div>
-                                    <h6 class="fw-semibold mb-0">Casey Williams</h6>
-                                    <small class="text-muted">casey@example.com</small>
-                                </div>
-                                <button class="btn btn-primary btn-sm">Recommend</button>
-                            </div>
-
-                            <div class="mb-2">
-                                <small class="fw-semibold d-block">Interests</small>
-                                <span class="badge text-bg-light border">UI/UX Design</span>
-                                <span class="badge text-bg-light border">Figma</span>
-                            </div>
-
-                            <hr>
-
-                            <div>
-                                <small class="fw-semibold d-block mb-1">Recommended Mentor:</small>
-                                <div class="ps-2">
-                                    <h6 class="fw-semibold mb-0">Emily Rodriguez</h6>
-                                    <small class="text-muted">6 years • 374 students</small>
-                                    <div class="mt-1">
-                                        <span class="badge text-bg-light border">UI/UX Design</span>
-                                        <span class="badge text-bg-light border">Figma</span>
-                                        <span class="badge text-bg-light border">Product Design</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <!-- Email -->
+    <div class="mb-3">
+      <label class="form-label">Email</label>
+      <input id="email" type="email" class="form-control" placeholder="Enter your email">
     </div>
 
-    <script src="header.js"></script>
-    <script src="nav.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
-</body>
+    <!-- Password -->
+    <div class="mb-3">
+      <label class="form-label">Password</label>
+      <input id="password" type="password" class="form-control" placeholder="Enter your password">
+    </div>
 
+    <!-- Login Button -->
+    <button id="loginBtn" class="btn btn-primary w-100" style="background-color: #1e5a8e; border: none;">
+      Login
+    </button>
+
+    <p id="errorMsg" class="text-danger mt-3 text-center" style="display:none;"></p>
+  </div>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Login Script -->
+  <script>
+    const loginBtn = document.getElementById("loginBtn");
+
+    loginBtn.addEventListener("click", async () => {
+      const email = document.getElementById("email").value.trim();
+      const password = document.getElementById("password").value.trim();
+      const errorMsg = document.getElementById("errorMsg");
+
+      if (!email || !password) {
+        errorMsg.style.display = "block";
+        errorMsg.textContent = "Email and password are required";
+        return;
+      }
+
+      loginBtn.textContent = "Logging in...";
+      loginBtn.disabled = true;
+
+      try {
+        const res = await fetch("https://mentors-backend.echobitsone.com/api/v1/auth/login", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({ email, password })
+        });
+
+        const data = await res.json();
+
+        if (data.status !== 200) {
+          errorMsg.style.display = "block";
+          errorMsg.textContent = data.message || "Login failed";
+          loginBtn.textContent = "Login";
+          loginBtn.disabled = false;
+          return;
+        }
+
+        // Save tokens to localStorage
+        localStorage.setItem("accessToken", data.accessToken);
+        localStorage.setItem("refreshToken", data.refreshToken);
+
+        // Redirect to dashboard
+        window.location.href = "dashboard.html";
+
+      } catch (err) {
+        errorMsg.style.display = "block";
+        errorMsg.textContent = "Network error. Try again later.";
+        console.error(err);
+      }
+
+      loginBtn.textContent = "Login";
+      loginBtn.disabled = false;
+    });
+  </script>
+
+</body>
 </html>
