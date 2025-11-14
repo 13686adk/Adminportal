@@ -22,6 +22,7 @@
     body {
         font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
         background-color: white;
+        display: flex;
     }
 
     #sidebar-container {
@@ -440,7 +441,7 @@
                             <span class="metric-title">Total Users</span>
                             <i class="fas fa-users metric-icon"></i>
                         </div>
-                        <div class="metric-value">6,912</div>
+                        <div class="metric-value" id="totalUsers">0</div>
                         <div class="metric-change">+345 vs last month</div>
                     </div>
 
@@ -449,7 +450,7 @@
                             <span class="metric-title">Active Sessions</span>
                             <i class="fas fa-chart-line metric-icon"></i>
                         </div>
-                        <div class="metric-value">342</div>
+                        <div class="metric-value" id="activeSessions">0</div>
                         <div class="metric-change">Average daily</div>
                     </div>
 
@@ -458,7 +459,7 @@
                             <span class="metric-title">Course Completion</span>
                             <i class="fas fa-graduation-cap metric-icon"></i>
                         </div>
-                        <div class="metric-value">78.5%</div>
+                        <div class="metric-value" id="courseCompletion">0</div>
                         <div class="metric-change">Average rate</div>
                     </div>
 
@@ -467,7 +468,7 @@
                             <span class="metric-title">Platform Growth</span>
                             <i class="fas fa-arrow-trend-up metric-icon"></i>
                         </div>
-                        <div class="metric-value positive">+24.3%</div>
+                        <div class="metric-value positive" id="platformGrowth">0</div>
                         <div class="metric-change positive">YoY growth</div>
                     </div>
                 </div>
@@ -481,15 +482,15 @@
                     <div class="legend">
                         <div class="legend-item">
                             <div class="legend-color" style="background-color: #7fb3d5;"></div>
-                            <span>Returning</span>
+                            <span>Mentors</span>
                         </div>
                         <div class="legend-item">
                             <div class="legend-color" style="background-color: #2c5f8d;"></div>
-                            <span>New</span>
+                            <span>Mentee</span>
                         </div>
                         <div class="legend-item">
                             <div class="legend-color" style="background-color: #1a3a52;"></div>
-                            <span>Total</span>
+                            <span>Users</span>
                         </div>
                     </div>
                 </div>
@@ -509,11 +510,11 @@
                             </div>
                             <div class="legend-item">
                                 <div class="legend-color" style="background-color: #2c5f8d;"></div>
-                                <span>In-progress</span>
+                                <span>On Hold</span>
                             </div>
                             <div class="legend-item">
                                 <div class="legend-color" style="background-color: #1a3a52;"></div>
-                                <span>Inactive</span>
+                                <span>Flagged</span>
                             </div>
                         </div>
                     </div>
@@ -713,6 +714,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
     <script src="header.js"></script>
     <script src="nav.js"></script>
+    <script src="js/insight.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
 
     <script>
@@ -732,177 +734,10 @@
             });
         });
 
-        // User Growth Trend Chart
-        const userGrowthCtx = document.getElementById('userGrowthChart').getContext('2d');
-        new Chart(userGrowthCtx, {
-            type: 'bar',
-            data: {
-                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov'],
-                datasets: [
-                    {
-                        label: 'Returning',
-                        data: [2500, 2800, 2200, 2900, 2600, 3100, 2800, 3200, 2900, 3300, 3000],
-                        backgroundColor: '#7fb3d5',
-                        borderRadius: 4,
-                    },
-                    {
-                        label: 'New',
-                        data: [1800, 2200, 1900, 2400, 2100, 2600, 2300, 2700, 2400, 2800, 2500],
-                        backgroundColor: '#2c5f8d',
-                        borderRadius: 4,
-                    },
-                    {
-                        label: 'Total',
-                        data: [4300, 5000, 4100, 5300, 4700, 5700, 5100, 5900, 5300, 6100, 5500],
-                        backgroundColor: '#1a3a52',
-                        borderRadius: 4,
-                    }
-                ]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: true,
-                plugins: {
-                    legend: {
-                        display: false
-                    }
-                },
-                scales: {
-                    x: {
-                        grid: {
-                            display: false
-                        }
-                    },
-                    y: {
-                        beginAtZero: true,
-                        grid: {
-                            color: '#f0f0f0'
-                        }
-                    }
-                }
-            }
-        });
 
-        // Session Performance Chart
-        const sessionCtx = document.getElementById('sessionPerformanceChart').getContext('2d');
-        new Chart(sessionCtx, {
-            type: 'bar',
-            data: {
-                labels: ['Week 1', 'Week 2', 'Week 3', 'Week 4', 'Week 5', 'Week 6', 'Week 7', 'Week 8'],
-                datasets: [
-                    {
-                        label: 'Completed',
-                        data: [35, 42, 38, 46, 40, 48, 45, 52],
-                        backgroundColor: '#7fb3d5',
-                        borderRadius: 4,
-                    },
-                    {
-                        label: 'In-progress',
-                        data: [25, 28, 24, 30, 26, 32, 28, 35],
-                        backgroundColor: '#2c5f8d',
-                        borderRadius: 4,
-                    },
-                    {
-                        label: 'Inactive',
-                        data: [8, 10, 7, 12, 9, 13, 10, 15],
-                        backgroundColor: '#1a3a52',
-                        borderRadius: 4,
-                    }
-                ]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: true,
-                plugins: {
-                    legend: {
-                        display: false
-                    }
-                },
-                scales: {
-                    x: {
-                        grid: {
-                            display: false
-                        }
-                    },
-                    y: {
-                        beginAtZero: true,
-                        max: 60,
-                        grid: {
-                            color: '#f0f0f0'
-                        }
-                    }
-                }
-            }
-        });
 
-        // User Engagement Pie Chart
-        const engagementCtx = document.getElementById('engagementChart').getContext('2d');
-        new Chart(engagementCtx, {
-            type: 'doughnut',
-            data: {
-                labels: ['Active', 'Inactive', 'Moderate', 'Very Active'],
-                datasets: [{
-                    data: [35, 25, 20, 20],
-                    backgroundColor: ['#5dade2', '#2874a6', '#1a5276', '#154360'],
-                    borderWidth: 0
-                }]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: true,
-                plugins: {
-                    legend: {
-                        display: false
-                    }
-                }
-            }
-        });
-
-        // Top Courses Chart
-        const topCoursesCtx = document.getElementById('topCoursesChart').getContext('2d');
-        new Chart(topCoursesCtx, {
-            type: 'bar',
-            data: {
-                labels: ['Web Development', 'Data Science', 'Mobile Dev', 'Cloud Computing', 'AI & ML', 'DevOps'],
-                datasets: [
-                    {
-                        label: 'Completions',
-                        data: [380, 320, 290, 280, 350, 270],
-                        backgroundColor: '#b0b0b0',
-                        borderRadius: 4,
-                    },
-                    {
-                        label: 'Enrollments',
-                        data: [520, 480, 450, 440, 490, 430],
-                        backgroundColor: '#1a5276',
-                        borderRadius: 4,
-                    }
-                ]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: true,
-                plugins: {
-                    legend: {
-                        display: false
-                    }
-                },
-                scales: {
-                    x: {
-                        grid: {
-                            display: false
-                        }
-                    },
-                    y: {
-                        beginAtZero: true,
-                        max: 600,
-                        grid: {
-                            color: '#f0f0f0'
-                        }
-                    }
-                }
-            }
-        });
+        
+       
     </script>
 </body>
 

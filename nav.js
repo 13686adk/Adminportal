@@ -1,3 +1,4 @@
+const baseurl = "https://mentors-backend.echobitsone.com";
 document.addEventListener("DOMContentLoaded", () => {
   const sidebarContainer = document.getElementById("sidebar-container");
 
@@ -9,7 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
         </div>
         <ul class="sidebar-menu">
           <li>
-            <a href="index.html" class="active">
+            <a href="dashboard.html" class="active">
               <i class="fas fa-th-large"></i>
               <span>Dashboard</span>
             </a>
@@ -65,7 +66,6 @@ document.addEventListener("DOMContentLoaded", () => {
       </div>
     `;
 
-    // Optional: highlight active page automatically
     const currentPage = window.location.pathname.split("/").pop();
     const links = sidebarContainer.querySelectorAll(".sidebar-menu a");
 

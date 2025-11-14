@@ -1,0 +1,4 @@
+localStorage.setItem(
+  "accessToken",
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFsbXVzdGFwaGExMzY4NkBnbWFpbC5jb20iLCJ1c2VySWQiOiJkYzZhODU2MS1jMTg5LTRlZjItYmU2Yi0zNDliMTEzNjUyNzkiLCJyb2xlIjoiQWRtaW4iLCJpYXQiOjE3NjMxMDIwMTEsImV4cCI6MTc2MzEyMDAxMX0.1dF27951BWePIBc9oHEkAysUTekd-kmOgW0r9K_oqeg"
+);
